@@ -14,11 +14,34 @@ class TiketVelvet extends Tiket {
         $this->layanan_butler = $layanan_butler;
     }
 
-    // Mengimplementasikan metode abstrak dari induk
+    // ==========================================
+    // GETTER & SETTER SPESIFIK VELVET
+    // ==========================================
+
+    public function getBantalSelimutPack() {
+        return $this->bantal_selimut_pack;
+    }
+
+    public function setBantalSelimutPack($bantal_selimut_pack) {
+        $this->bantal_selimut_pack = $bantal_selimut_pack;
+    }
+
+    public function getLayananButler() {
+        return $this->layanan_butler;
+    }
+
+    public function setLayananButler($layanan_butler) {
+        $this->layanan_butler = $layanan_butler;
+    }
+
+    // ==========================================
+    // TAHAP 5: IMPLEMENTASI POLIMORFISME OVERRIDING
+    // ==========================================
+
     public function hitungTotalHarga() {
-        // Studio Velvet memiliki biaya premium flat (misal: +Rp 100.000 untuk fasilitas tempat tidur & pelayanan)
-        $biaya_premium = 100000;
-        return ($this->harga_dasar_tiket * $this->jumlah_kursi) + $biaya_premium;
+        // Logika Bisnis Baru: Total Harga = (jumlah_kursi * hargaDasarTiket) * 1.50
+        // (Dikenakan surcharge/biaya tambahan kelas premium sebesar 50% dari total harga dasar)
+        return ($this->jumlah_kursi * $this->harga_dasar_tiket) * 1.50;
     }
 
     public function tampilkanInfoFasilitas() {

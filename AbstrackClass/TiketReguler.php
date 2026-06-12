@@ -14,10 +14,34 @@ class TiketRegular extends Tiket {
         $this->lokasi_baris = $lokasi_baris;
     }
 
-    // Mengimplementasikan metode abstrak dari induk
+    // ==========================================
+    // GETTER & SETTER SPESIFIK REGULAR
+    // ==========================================
+
+    public function getTipeAudio() {
+        return $this->tipe_audio;
+    }
+
+    public function setTipeAudio($tipe_audio) {
+        $this->tipe_audio = $tipe_audio;
+    }
+
+    public function getLokasiBaris() {
+        return $this->lokasi_baris;
+    }
+
+    public function setLokasiBaris($lokasi_baris) {
+        $this->lokasi_baris = $lokasi_baris;
+    }
+
+    // ==========================================
+    // TAHAP 5: IMPLEMENTASI POLIMORFISME OVERRIDING
+    // ==========================================
+
     public function hitungTotalHarga() {
-        // Tiket Reguler hanya menghitung harga dasar dikali jumlah kursi
-        return $this->harga_dasar_tiket * $this->jumlah_kursi;
+        // Logika Bisnis: Total Harga = jumlah_kursi * hargaDasarTiket
+        // (Tarif standar murni tanpa biaya tambahan fasilitas)
+        return $this->jumlah_kursi * $this->harga_dasar_tiket;
     }
 
     public function tampilkanInfoFasilitas() {

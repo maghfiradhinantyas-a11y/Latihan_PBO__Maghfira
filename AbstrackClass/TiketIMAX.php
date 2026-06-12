@@ -14,11 +14,32 @@ class TiketIMAX extends Tiket {
         $this->efek_gerak_fitur = $efek_gerak_fitur;
     }
 
-    // Mengimplementasikan metode abstrak dari induk
+    // ==========================================
+    // GETTER & SETTER SPESIFIK IMAX
+    // ==========================================
+
+    public function getKacamata3dId() {
+        return $this->kacamata_3d_id;
+    }
+    public function setKacamata3dId($kacamata_3d_id) {
+        $this->kacamata_3d_id = $kacamata_3d_id;
+    }
+
+    public function getEfekGerakFitur() {
+        return $this->efek_gerak_fitur;
+    }
+    public function setEfekGerakFitur($efek_gerak_fitur) {
+        $this->efek_gerak_fitur = $efek_gerak_fitur;
+    }
+
+    // ==========================================
+    // TAHAP 5: IMPLEMENTASI POLIMORFISME OVERRIDING
+    // ==========================================
+    
     public function hitungTotalHarga() {
-        // Studio IMAX memiliki biaya tambahan teknologi (misal: +Rp 25.000 per kursi)
-        $biaya_tambahan_imax = 25000 * $this->jumlah_kursi;
-        return ($this->harga_dasar_tiket * $this->jumlah_kursi) + $biaya_tambahan_imax;
+        // Logika Bisnis Baru: Biaya tambahan teknologi layar & audio flat Rp 35.000
+        $biaya_tambahan_imax = 35000;
+        return ($this->jumlah_kursi * $this->harga_dasar_tiket) + $biaya_tambahan_imax;
     }
 
     public function tampilkanInfoFasilitas() {
