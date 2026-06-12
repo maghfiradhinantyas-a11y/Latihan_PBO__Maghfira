@@ -3,7 +3,7 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');              // Username database Anda (bawaan biasanya root)
 define('DB_PASS', '');                  // Password database Anda (bawaan biasanya kosong)
-define('DB_NAME', 'nama_database_anda'); // Ganti dengan nama database Anda
+define('DB_NAME', 'db_latihan_pbo_trpl 1a_maghfira'); // Ganti dengan nama database Anda
 
 try {
     // Membuat koneksi ke database menggunakan PDO
